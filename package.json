@@ -1,0 +1,22 @@
+{
+  "name": "web-dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Ryan Sheehan",
+  "license": "ISC",
+  "dependencies": 
+  {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "jQuery": "^1.7.4",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "description": "A distributed system web application, that allows for the creation and joing of rooms where users can talk in real time and play games"
+}

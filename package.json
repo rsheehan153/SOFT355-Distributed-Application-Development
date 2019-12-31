@@ -4,18 +4,21 @@
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha"
   },
   "author": "Ryan Sheehan",
   "license": "ISC",
-  "dependencies": 
-  {
+  "dependencies": {
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "jQuery": "^1.7.4",
+    "mocha-junit-reporter": "^1.23.1",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
     "nodemon": "^2.0.2"
   },
   "description": "A distributed system web application, that allows for the creation and joing of rooms where users can talk in real time and play games"

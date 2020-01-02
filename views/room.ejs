@@ -9,7 +9,10 @@
     const roomName = "<%= roomName %>"
   </script>
   <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
   <script defer src="Room.js"></script>
+  <script defer src="Game.js"></script>
   <style>
     body 
     {
@@ -140,12 +143,29 @@
 {
   margin: 20px;
 }
+.board 
+{
+   margin: auto;
+   width: 490px;
+}
+.board button 
+{
+   height: 150px;
+   width: 150px;
+   float: left; 
+   margin: 5px;
+   font-size: 3em;
+}
+
   </style>
 </head>
 <body>
   <div id="game-container"><div class="menu">
-    <div class="gameBoard">
-      
+    <div class="board">
+      <button id="a0"></button> <button id="a1"></button> <button id="a2"></button>
+      <button id="b0"></button> <button id="b1"></button> <button id="b2"></button>
+      <button id="c0"></button> <button id="c1"></button> <button id="c2"></button>
+      <div id="messages">Waiting for opponent to join...</div>
     </div>
   </div>
   </div>

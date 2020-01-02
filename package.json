@@ -5,8 +5,7 @@
   "scripts": 
   {
     "devStart": "nodemon server.js",
-    "start": "node server.js",
-    "test": " ng test & mocha '.\\test\\test.js' --reporter mocha-junit-reporter --reporter-options mochaFile=tests/mocha/test-results.xml"
+    "test": " ng test & mocha '.\\test\\test.js' --reporter mocha-junit-reporter --reporter-options mochaFile=test\\mocha\\test-results.xml"
   },
   "author": "Ryan Sheehan",
   "license": "ISC",

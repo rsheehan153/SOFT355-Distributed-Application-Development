@@ -10,6 +10,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
 server.listen(3000)
+var port = process.env.PORT || 3000;
 
 const rooms = { }
 

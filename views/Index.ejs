@@ -1,88 +1,82 @@
-  
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Chat App</title>
-  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-  
+  <title>Soft 355 application</title>
 </head>
 <style>
+  #creator {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    bottom: 0;
+    background-color: white;
+    max-width: 1200px;
+    width: 50%;
+    height: 5%;
+    display: flex;
+  }
 
-#creator {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  bottom: 0;
-  background-color: white;
-  max-width: 1200px;
-  width: 50%;
-  height: 5%;
-  display: flex;
-}
+  #room-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 
-#room-container{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
+  #creator2 {
+    position: fixed;
+    padding-bottom: 30px;
+    bottom: 0;
+    background-color: white;
+    max-width: 1200px;
+    width: 50%;
+    height: 5%;
+    display: flex;
+  }
 
-#creator2 {
-  position: fixed;
-      padding-bottom: 30px;
-      bottom: 0;
-      background-color: white;
-      max-width: 1200px;
-      width: 50%;
-      height: 5%;
-      display: flex;
-}
+  #room-name {
+    border: 5px double rgba(28, 110, 164, 0.5);
+    border-radius: 36px 0px 0px 40px;
+  }
 
-#room-name {
-  border: 5px double rgba(28,110,164,0.5);
-  border-radius: 36px 0px 0px 40px;
-}
-
-#sub-room
-{
-  border: 5px double rgba(28,110,164,0.5);
-  border-radius: 0px 40px 40px 0px;
-  font-family: Arial, Helvetica, sans-serif;
-  float: right;
-}
+  #sub-room {
+    border: 5px double rgba(28, 110, 164, 0.5);
+    border-radius: 0px 40px 40px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    float: right;
+  }
 
 
-#room-name2
-{
-  font-family: Arial, Helvetica, sans-serif;
-}
+  #room-name2 {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-#join-button
-{
-  display: inline;
-  border: 2px dotted rgba(28,110,164,0.58);
-  border-radius: 27px;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  #join-button {
+    display: inline;
+    border: 2px dotted rgba(28, 110, 164, 0.58);
+    border-radius: 27px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 </style>
 
 <body>
   <div id="creator">
-
-  <div id="room-container">
-    <% Object.keys(rooms).forEach(room => { %>
+    <div id="room-container">
+      <% Object.keys(rooms).forEach(room => { %>
       <div id="room-name2"><%= room %></div>
       <a href="/<%= room %>" id="join-button">Join</a><% }) %>
-  </div>
-  <div id="creator2">
-  <form action="/room" method="POST">
-    <input name="room" id="room-name" type="text" required>
-    <button type="submit" id="sub-room">New Room</button>
-  </form>
-</div>
+    </div>
+    <div id="creator2">
+      <form action="/room" method="POST">
+        <input name="room" id="room-name" type="text" required>
+        <button type="submit" id="sub-room">New Room</button>
+      </form>
+    </div>
 </body>
+
 </html>

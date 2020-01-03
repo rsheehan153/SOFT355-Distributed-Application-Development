@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Chat App</title>
+  <title>Chat Room</title>
   <script>
     const roomName = "<%= roomName %>"
   </script>
@@ -14,78 +15,75 @@
   <script defer src="Room.js"></script>
   <script defer src="Game.js"></script>
   <style>
-    body 
-    {
+    body {
       padding: 0;
       margin: 0;
       display: flex;
       justify-content: center;
     }
 
-    .btn-group button 
-    {
-    background-color: blue; /* Green background */
-    border: 1px solid darkgreen; /* Green border */
-    color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    float: left; /* Float the buttons side by side */
+    .btn-group button {
+      background-color: blue;
+      /* Green background */
+      border: 1px solid darkgreen;
+      /* Green border */
+      color: white;
+      /* White text */
+      padding: 10px 24px;
+      /* Some padding */
+      cursor: pointer;
+      /* Pointer/hand icon */
+      float: left;
+      /* Float the buttons side by side */
     }
 
-    .btn-group button:not(:last-child) 
-    {
-      border-right: none; /* Prevent double borders */
+    .btn-group button:not(:last-child) {
+      border-right: none;
+      /* Prevent double borders */
     }
 
 
-    .btn-group:after 
-    {
+    .btn-group:after {
       content: "";
       clear: both;
       display: table;
     }
 
-    .btn-group button:hover 
-    {
+    .btn-group button:hover {
       background-color: lightblue;
     }
 
-    #message-container 
-    {
+    #message-container {
       width: 80%;
       height: 80%;
       max-width: 1200px;
       float: right;
       overflow: auto;
       font-family: Arial, Helvetica, sans-serif;
-      border: 5px double rgba(28,110,164,0.73);
+      border: 5px double rgba(28, 110, 164, 0.73);
       border-radius: 12px;
     }
 
-    #message-container div 
-    {
+    #message-container div {
       background-color: #CCC;
       padding: 5px;
     }
 
-    #message-container div:nth-child(2n) 
-    {
+    #message-container div:nth-child(2n) {
       background-color: #FFF;
     }
 
-    #game-container 
-    {
+    #game-container {
       position: relative;
       width: 80%;
       height: 80%;
       max-width: 1200px;
       float: left;
-      border: 5px double rgba(28,110,164,0.73);
+      border: 5px double rgba(28, 110, 164, 0.73);
       border-radius: 12px;
     }
 
-    #send-container 
-    {
+    #send-container {
       position: fixed;
       padding-bottom: 30px;
       bottom: 0;
@@ -96,79 +94,75 @@
       display: flex;
     }
 
-    #message-input 
-    {
-      border: 5px double rgba(28,110,164,0.5);
+    #message-input {
+      border: 5px double rgba(28, 110, 164, 0.5);
       border-radius: 36px 0px 0px 40px;
       flex-grow: 1;
     }
 
-    #send-button
-    {
-      border: 5px double rgba(28,110,164,0.5);
+    #send-button {
+      border: 5px double rgba(28, 110, 164, 0.5);
       border-radius: 0px 40px 40px 0px;
       font-family: Arial, Helvetica, sans-serif;
 
     }
 
 
-.btn-matrix > .btn:nth-child(3n+4) 
-{
-  clear: left;
-  margin-left: 0;
-}
-.btn-matrix > .btn:nth-child(n+4) 
-{
-  margin-top: -1px;
-}
-.btn-matrix > .btn:first-child 
-{
-  border-bottom-left-radius: 0;
-}
-.btn-matrix > .btn:nth-child(3) 
-{
-  border-top-right-radius: 4px !important;
-}
-.btn-matrix > .btn:nth-last-child(3) 
-{
-  border-bottom-left-radius: 4px !important;
-}
-.btn-matrix > .btn:last-child 
-{
-  border-top-right-radius: 0;
-}
+    .btn-matrix>.btn:nth-child(3n+4) {
+      clear: left;
+      margin-left: 0;
+    }
 
-/* Decorations */
-.btn-matrix 
-{
-  margin: 20px;
-}
-.board 
-{
-   margin: auto;
-   width: 490px;
-}
-.board button 
-{
-   height: 150px;
-   width: 150px;
-   float: left; 
-   margin: 5px;
-   font-size: 3em;
-}
+    .btn-matrix>.btn:nth-child(n+4) {
+      margin-top: -1px;
+    }
 
-</style>
+    .btn-matrix>.btn:first-child {
+      border-bottom-left-radius: 0;
+    }
+
+    .btn-matrix>.btn:nth-child(3) {
+      border-top-right-radius: 4px !important;
+    }
+
+    .btn-matrix>.btn:nth-last-child(3) {
+      border-bottom-left-radius: 4px !important;
+    }
+
+    .btn-matrix>.btn:last-child {
+      border-top-right-radius: 0;
+    }
+
+    /* Decorations */
+    .btn-matrix {
+      margin: 20px;
+    }
+
+    .board {
+      margin: auto;
+      width: 490px;
+    }
+
+    .board button {
+      height: 150px;
+      width: 150px;
+      float: left;
+      margin: 5px;
+      font-size: 3em;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="game-container"><div class="menu">
-    <div class="board">
-      <button id="a0"></button> <button id="a1"></button> <button id="a2"></button>
-      <button id="b0"></button> <button id="b1"></button> <button id="b2"></button>
-      <button id="c0"></button> <button id="c1"></button> <button id="c2"></button>
-      <div id="messages">Waiting for opponent to join...</div>
+  <div id="game-container">
+    <div class="menu">
+      <div class="board">
+        <button id="a0"></button> <button id="a1"></button> <button id="a2"></button>
+        <button id="b0"></button> <button id="b1"></button> <button id="b2"></button>
+        <button id="c0"></button> <button id="c1"></button> <button id="c2"></button>
+        <div id="messages">Waiting for opponent to join...</div>
+      </div>
     </div>
-  </div>
   </div>
   <div id="message-container">
     <form id="send-container">
@@ -177,4 +171,5 @@
     </form>
   </div>
 </body>
+
 </html>

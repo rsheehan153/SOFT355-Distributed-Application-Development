@@ -2,15 +2,13 @@
   "name": "web-dev",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": 
-  {
+  "scripts": {
     "devStart": "nodemon server.js",
     "test": " ng test & mocha '.\\test\\test.js' --reporter mocha-junit-reporter --reporter-options mochaFile=test\\mocha\\test-results.xml"
   },
   "author": "Ryan Sheehan",
   "license": "ISC",
-  "dependencies": 
-  {
+  "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
@@ -21,9 +19,7 @@
     "mongoose": "^5.8.3",
     "socket.io": "^2.3.0"
   },
-
-  "devDependencies": 
-  {
+  "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "nodemon": "^2.0.2"

@@ -1,4 +1,4 @@
-  
+
 const express = require('express')
 const app = express()
 const server = require('http').Server(app)
@@ -6,13 +6,15 @@ const io = require('socket.io')(server)
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
-app.use(express.urlencoded({ extended: true }))
 
 server.listen(3000)
 var port = process.env.PORT || 3000;
 
-const rooms = { }
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+
+app.listen(port);
+const rooms = {}
 
 app.get('/', (req, res) => {
   res.render('index', { rooms: rooms })
@@ -22,7 +24,7 @@ app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
     return res.redirect('/')
   }
-  
+
   rooms[req.body.room] = { users: {} }
   res.redirect(req.body.room)
   // Send message that new room was created

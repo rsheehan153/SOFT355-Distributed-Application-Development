@@ -6,14 +6,12 @@ const io = require('socket.io')(server)
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
-
-server.listen(3000)
-var port = process.env.PORT || 3000;
-
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
-app.listen(port);
+var port = process.env.PORT || 3000;
+server.listen(port)
+
 const rooms = {}
 
 app.get('/', (req, res) => {

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js",
+    "start": "nodemon server.js",
     "test": "ng test & mocha '.\\test\\test.js' --reporter mocha-junit-reporter --reporter-options mochaFile=test\\mocha\\test-results.xml"
   },
   "author": "Ryan Sheehan",

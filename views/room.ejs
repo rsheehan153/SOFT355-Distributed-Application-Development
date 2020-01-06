@@ -14,6 +14,8 @@
   <script src="socket.io/socket.io.js"></script>
   <script defer src="room/Room.js"></script>
   <script defer src="room/Game.js"></script>
+  <script>
+  </script>
   <link href="/room/Room.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -21,15 +23,15 @@
   <div id="game-container">
     <div class="menu">
       <div class="board">
-        <button id="cell1"></button> <button id="cell2"></button> <button id="cell3"></button>
-        <button id="cell4"></button> <button id="cell5"></button> <button id="cell6"></button>
-        <button id="cell7"></button> <button id="cell8"></button> <button id="cell9"></button>
-        <button id="cell01">clear</button>
+        <button id="cell1" onclick="clientButtonClicked(this.id)"></button> <button id="cell2" onclick="clientButtonClicked(this.id)"></button> <button id="cell3" onclick="clientButtonClicked(this.id)"></button>
+        <button id="cell4" onclick="clientButtonClicked(this.id)"></button> <button id="cell5" onclick="clientButtonClicked(this.id)"></button> <button id="cell6" onclick="clientButtonClicked(this.id)"></button>
+        <button id="cell7" onclick="clientButtonClicked(this.id)"></button> <button id="cell8" onclick="clientButtonClicked(this.id)"></button> <button id="cell9" onclick="clientButtonClicked(this.id)"></button>
+        <button id="cell01" onclick="clearButtonClicked(this.id)">Clear</button>
       </div>
     </div>
   </div>
   <div id="message-container">
-    <form id="send-container">
+    <form id="send-container"> 
       <input type="text" id="message-input">
       <button type="submit" id="send-button">Send</button>
     </form>

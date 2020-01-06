@@ -25,7 +25,6 @@ app.post('/room', (req, res) => {
 
   rooms[req.body.room] = { users: {} }
   res.redirect(req.body.room)
-  // Send message that new room was created
   io.emit('room-created', req.body.room)
 })
 
@@ -45,6 +44,16 @@ io.on('connection', socket => {
   })
   socket.on('send-chat-message', (room, message) => {
     socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
+  })
+  socket.on('clientButtonClicked', (room, button) => {
+    console.log(button)
+    console.log(room)
+    io.in(room).emit('move-made', button)
+  })
+  socket.on('clearButtonClicked', (room, button) => {
+    console.log(button)
+    console.log(room)
+    io.in(room).emit('move-clear')
   })
   socket.on('disconnect', () => {
     getUserRooms(socket).forEach(room => {

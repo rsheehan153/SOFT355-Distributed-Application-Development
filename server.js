@@ -46,14 +46,13 @@ io.on('connection', socket => {
     socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
   })
   socket.on('clientButtonClicked', (room, button) => {
-    console.log(button)
-    console.log(room)
     io.in(room).emit('move-made', button)
   })
   socket.on('clearButtonClicked', (room, button) => {
-    console.log(button)
-    console.log(room)
     io.in(room).emit('move-clear')
+  })
+  socket.on('switch', (room,button) => {
+    socket.to(room).broadcast.emit('unDisable', button)
   })
   socket.on('disconnect', () => {
     getUserRooms(socket).forEach(room => {

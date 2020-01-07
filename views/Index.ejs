@@ -14,8 +14,9 @@
     <div id="room-container">
       <% Object.keys(rooms).forEach(room => { %>
       <div id="room-name2"><%= room %></div>
-      <a href="/<%= room %>" id="join-button">Join</a><% }) %>
+      <a href="/<%= room %>" id="join-button">Join Room</a><% }) %>
     </div>
+  </div>
     <div id="creator2">
       <form action="/room" method="POST">
         <input name="room" id="room-name" type="text" required>

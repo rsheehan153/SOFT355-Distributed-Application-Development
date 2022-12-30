@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.2",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.2"
   },
   "description": "A distributed system web application, that allows for the creation and joing of rooms where users can talk in real time and play Battleships"
